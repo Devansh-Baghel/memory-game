@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import PlayGame from './PlayGame'
 
 function App() {
   const [gamemode, setGamemode] = useState("easy")
@@ -7,10 +8,7 @@ function App() {
 
   if (startGame) {
     return (
-      <div>
-        <h1>Game Starting</h1>
-        <h2>Playing on {gamemode} difficulty</h2>
-      </div>
+      <PlayGame gamemode={gamemode} />
     )
   }
 
