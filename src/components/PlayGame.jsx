@@ -64,7 +64,6 @@ function PlayGame(props) {
           onClick={(e) => {handleRandomizeClick(e)}}
         />
       ))}
-      <button onClick={handleRandomizeClick}>Randomize</button>
     </div>
   );
 }

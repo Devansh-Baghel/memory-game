@@ -1,6 +1,7 @@
-add a button to randomize the flag display
-change readme.md
-name: remember the flag!
-write css
-instructions modal in the very beggining of the game
-make a game over component
+- [ ] add a button to randomize the flag display
+- [ ] change readme.md
+- [ ] name: remember the flag!
+- [ ] write css
+- [ ] instructions modal in the very beggining of the game
+- [ ] make a game over component
+- [ ] remove the randomize button
