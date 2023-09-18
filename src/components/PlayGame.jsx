@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { isValidElement } from "react";
 import { useEffect } from "react";
 
 function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
+  const [gameOver, setGameOver] = useState(false);
 
   const countries = [
     "kr",
@@ -45,27 +47,39 @@ function PlayGame(props) {
     if (clickedCountry.includes(e.target.alt) === false) {
       setCurrScore(currScore + 1)
       setClickedCountry([...clickedCountry, e.target.alt])
+    } else {
+      setGameOver(true)
     }
     const shuffledArray = shuffle(obj[props.gamemode]);
     setRandomCountries(shuffledArray);
   };
 
-  return (
-    <div>
-      <h1>Game Starting</h1>
-      <h2>Score: {currScore}</h2>
-      <h2>High Score: {bestScore}</h2>
-      <h2>Playing on {props.gamemode} difficulty</h2>
-      {randomCountries.map((country, index) => (
-        <img
-          key={index}
-          src={`https://flagcdn.com/w320/${country}.png`}
-          alt={country}
-          onClick={(e) => {handleRandomizeClick(e)}}
-        />
-      ))}
-    </div>
-  );
+
+  if (!gameOver) {
+    return (
+      <div>
+        <h1>Game Starting</h1>
+        <h2>Score: {currScore}</h2>
+        <h2>High Score: {bestScore}</h2>
+        <h2>Playing on {props.gamemode} difficulty</h2>
+        {randomCountries.map((country, index) => (
+          <img
+            key={index}
+            src={`https://flagcdn.com/w320/${country}.png`}
+            alt={country}
+            onClick={(e) => {handleRandomizeClick(e)}}
+          />
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div className="game-over">
+        <h1>Game Over</h1>
+        <button>Play Again?</button>
+      </div>
+    )
+  }
 }
 
 export default PlayGame;
