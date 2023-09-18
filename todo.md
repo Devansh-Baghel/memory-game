@@ -3,3 +3,4 @@ change readme.md
 name: remember the flag!
 write css
 instructions modal in the very beggining of the game
+make a game over component

@@ -39,10 +39,12 @@ function PlayGame(props) {
     setRandomCountries(shuffledArray);
   }, [props.gamemode]);
 
+  const [clickedCountry, setClickedCountry] = useState([])
+
   const handleRandomizeClick = (e) => {
-    if (e.target.className !== "clicked") {
-      setCurrScore(currScore + 1);
-      e.target.className = "clicked"
+    if (clickedCountry.includes(e.target.alt) === false) {
+      setCurrScore(currScore + 1)
+      setClickedCountry([...clickedCountry, e.target.alt])
     }
     const shuffledArray = shuffle(obj[props.gamemode]);
     setRandomCountries(shuffledArray);
