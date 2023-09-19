@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import PlayGame from './PlayGame'
+import "../styles/App.scss"
 
 function App() {
   const [gamemode, setGamemode] = useState("easy")
