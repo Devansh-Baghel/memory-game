@@ -4,7 +4,9 @@ import { useEffect } from "react";
 function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  // const [gameOver, setGameOver] = useState(false);
+  const [gameState, setGameState] = useState("playing")
+
 
   const countries = [
     "kr",
@@ -51,8 +53,12 @@ function PlayGame(props) {
 
       setCurrScore(currScore + 1);
       setClickedCountry([...clickedCountry, e.target.alt]);
+
+      if ((currScore + 1) === obj[props.gamemode].length) {
+        setGameState("won")
+      }
     } else {
-      setGameOver(true);
+      setGameState("lost")
     }
     const shuffledArray = shuffle(obj[props.gamemode]);
     setRandomCountries(shuffledArray);
@@ -61,10 +67,10 @@ function PlayGame(props) {
   const playAgain = () => {
     setCurrScore(0);
     setClickedCountry([]);
-    setGameOver(false);
+    setGameState("playing")
   };
 
-  if (!gameOver) {
+  if (gameState === "playing") {
     return (
       <div>
         <h1>Game Starting</h1>
@@ -83,7 +89,7 @@ function PlayGame(props) {
         ))}
       </div>
     );
-  } else {
+  } else if (gameState === "lost"){
     return (
       <div className="game-over">
         <h1>Game Over</h1>
@@ -92,6 +98,15 @@ function PlayGame(props) {
         <button onClick={playAgain}>Play Again?</button>
       </div>
     );
+  } else if (gameState === "won") {
+    return (
+      <div>
+        <h1>You Won!!!!</h1>
+        <h2>Your Score is {currScore}</h2>
+        <h2>High Score is {bestScore}</h2>
+        <button onClick={playAgain}>Play Again?</button>
+      </div>
+    )
   }
 }
 

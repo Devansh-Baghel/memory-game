@@ -8,5 +8,6 @@
 - [x] add play again option
 - [ ] Add change difficulty option in game over screen
 - [x] Add score, highscore in game over screen
-- [ ] Make high score work
+- [x] Make high score work
+- [x] Add game win screen
 
