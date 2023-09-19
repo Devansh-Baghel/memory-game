@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { isValidElement } from "react";
 import { useEffect } from "react";
 
 function PlayGame(props) {
@@ -55,6 +54,13 @@ function PlayGame(props) {
   };
 
 
+  const playAgain = () => {
+    setCurrScore(0)
+    setClickedCountry([])
+    setGameOver(false)
+  }
+
+
   if (!gameOver) {
     return (
       <div>
@@ -76,7 +82,7 @@ function PlayGame(props) {
     return (
       <div className="game-over">
         <h1>Game Over</h1>
-        <button>Play Again?</button>
+        <button onClick={playAgain}>Play Again?</button>
       </div>
     )
   }
