@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 function PlayGame(props) {
-  const [currScore, setCurrScore] = useState(0)
-  const [bestScore, setBestScore] = useState(0)
+  const [currScore, setCurrScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
   const countries = [
@@ -40,26 +40,29 @@ function PlayGame(props) {
     setRandomCountries(shuffledArray);
   }, [props.gamemode]);
 
-  const [clickedCountry, setClickedCountry] = useState([])
+  const [clickedCountry, setClickedCountry] = useState([]);
 
   const handleRandomizeClick = (e) => {
     if (clickedCountry.includes(e.target.alt) === false) {
-      setCurrScore(currScore + 1)
-      setClickedCountry([...clickedCountry, e.target.alt])
+      // updating high score
+      if (currScore >= bestScore) {
+        setBestScore(currScore + 1);
+      }
+
+      setCurrScore(currScore + 1);
+      setClickedCountry([...clickedCountry, e.target.alt]);
     } else {
-      setGameOver(true)
+      setGameOver(true);
     }
     const shuffledArray = shuffle(obj[props.gamemode]);
     setRandomCountries(shuffledArray);
   };
 
-
   const playAgain = () => {
-    setCurrScore(0)
-    setClickedCountry([])
-    setGameOver(false)
-  }
-
+    setCurrScore(0);
+    setClickedCountry([]);
+    setGameOver(false);
+  };
 
   if (!gameOver) {
     return (
@@ -73,7 +76,9 @@ function PlayGame(props) {
             key={index}
             src={`https://flagcdn.com/w320/${country}.png`}
             alt={country}
-            onClick={(e) => {handleRandomizeClick(e)}}
+            onClick={(e) => {
+              handleRandomizeClick(e);
+            }}
           />
         ))}
       </div>
@@ -86,7 +91,7 @@ function PlayGame(props) {
         <h2>High Score is {bestScore}</h2>
         <button onClick={playAgain}>Play Again?</button>
       </div>
-    )
+    );
   }
 }
 
