@@ -82,6 +82,8 @@ function PlayGame(props) {
     return (
       <div className="game-over">
         <h1>Game Over</h1>
+        <h2>Your Score is {currScore}</h2>
+        <h2>High Score is {bestScore}</h2>
         <button onClick={playAgain}>Play Again?</button>
       </div>
     )
