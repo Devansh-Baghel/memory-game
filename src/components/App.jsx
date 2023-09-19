@@ -22,7 +22,7 @@ function App() {
         <button onClick={() => {setGamemode("hard")}}>Hard</button>
         <h3>Difficulty has been set to {gamemode}</h3>
         <button onClick={() => {setStartGame(true)}}>Play</button>
-      </dialog>   
+      </dialog>
     )
   }
 }
