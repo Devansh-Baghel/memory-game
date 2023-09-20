@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PlayGame from "./PlayGame";
 import "../styles/App.scss";
+import "../index.css"
 
 function App() {
   const [gamemode, setGamemode] = useState("easy");
@@ -11,8 +12,8 @@ function App() {
     return <PlayGame gamemode={gamemode} />;
   } else {
     return (
-      <dialog open>
-        <h2>Choose Difficulty</h2>
+      <div className="flex items-center justify-center w-screen h-screen">
+        <h2 className="">Choose Difficulty</h2>
         <button
           onClick={() => {
             setGamemode("easy");
@@ -37,7 +38,7 @@ function App() {
         >
           Hard
         </button>
-      </dialog>
+      </div>
     );
   }
 }
