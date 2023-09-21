@@ -5,6 +5,16 @@ function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [gameState, setGameState] = useState("won");
+  const [buttonColorClass, setButtonColorClass] = useState("hover:text-green-500");
+
+  useEffect(() => {
+    if (props.gamemode === "medium") {
+      setButtonColorClass("hover:text-yellow-400")
+    } else if (props.gamemode === "hard") {
+      setButtonColorClass("hover:text-red-500")
+    }
+  }, [])
+
 
   const countries = [
     "kr",
@@ -101,7 +111,7 @@ function PlayGame(props) {
       <div className="bg-slate-950 w-screen h-screen text-slate-200 text-2xl flex flex-col justify-center items-center">
         <h1 className="text-5xl mb-8">You Win!!</h1>
         <button
-          className="px-7 bg-slate-900 hover:text-green-500 py-3 rounded-xl hover:bg-slate-800"
+          className= {`px-7 bg-slate-900 ${buttonColorClass} py-3 rounded-xl hover:bg-slate-800`}
           onClick={playAgain}
         >
           Play Again?
