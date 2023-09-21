@@ -14,7 +14,7 @@ function App() {
     return (
       <div className="flex items-center justify-center w-screen h-screen flex-col gap-20 bg-slate-950 text-slate-200">
         <h2 className="text-5xl">Choose Difficulty</h2>
-        <ul className="text-xl">
+        <ul className="text-xl text-center">
           <li><span className="text-green-500">EASY: </span>You will have to remember 6 flags</li>
           <li><span className="text-yellow-400">MEDIUM: </span>You will have to remember 10 flags</li>
           <li><span className="text-red-500">HARD: </span>You will have to remember 14 flags</li>
