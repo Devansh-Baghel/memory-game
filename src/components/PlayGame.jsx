@@ -4,9 +4,7 @@ import { useEffect } from "react";
 function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  // const [gameOver, setGameOver] = useState(false);
-  const [gameState, setGameState] = useState("playing")
-
+  const [gameState, setGameState] = useState("won");
 
   const countries = [
     "kr",
@@ -54,11 +52,11 @@ function PlayGame(props) {
       setCurrScore(currScore + 1);
       setClickedCountry([...clickedCountry, e.target.alt]);
 
-      if ((currScore + 1) === obj[props.gamemode].length) {
-        setGameState("won")
+      if (currScore + 1 === obj[props.gamemode].length) {
+        setGameState("won");
       }
     } else {
-      setGameState("lost")
+      setGameState("lost");
     }
     const shuffledArray = shuffle(obj[props.gamemode]);
     setRandomCountries(shuffledArray);
@@ -67,7 +65,7 @@ function PlayGame(props) {
   const playAgain = () => {
     setCurrScore(0);
     setClickedCountry([]);
-    setGameState("playing")
+    setGameState("playing");
   };
 
   if (gameState === "playing") {
@@ -89,7 +87,7 @@ function PlayGame(props) {
         ))}
       </div>
     );
-  } else if (gameState === "lost"){
+  } else if (gameState === "lost") {
     return (
       <div className="game-over">
         <h1>Game Over</h1>
@@ -100,13 +98,16 @@ function PlayGame(props) {
     );
   } else if (gameState === "won") {
     return (
-      <div>
-        <h1>You Won!!!!</h1>
-        <h2>Your Score is {currScore}</h2>
-        <h2>High Score is {bestScore}</h2>
-        <button onClick={playAgain}>Play Again?</button>
+      <div className="bg-slate-950 w-screen h-screen text-slate-200 text-2xl flex flex-col justify-center items-center">
+        <h1 className="text-5xl mb-8">You Win!!</h1>
+        <button
+          className="px-7 bg-slate-900 hover:text-green-500 py-3 rounded-xl hover:bg-slate-800"
+          onClick={playAgain}
+        >
+          Play Again?
+        </button>
       </div>
-    )
+    );
   }
 }
 
