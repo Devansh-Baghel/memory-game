@@ -4,7 +4,7 @@ import { useEffect } from "react";
 function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [gameState, setGameState] = useState("won");
+  const [gameState, setGameState] = useState("lost");
   const [buttonColorClass, setButtonColorClass] = useState("hover:text-green-500");
 
   useEffect(() => {
@@ -54,7 +54,6 @@ function PlayGame(props) {
 
   const handleRandomizeClick = (e) => {
     if (clickedCountry.includes(e.target.alt) === false) {
-      // updating high score
       if (currScore >= bestScore) {
         setBestScore(currScore + 1);
       }
@@ -99,11 +98,16 @@ function PlayGame(props) {
     );
   } else if (gameState === "lost") {
     return (
-      <div className="game-over">
-        <h1>Game Over</h1>
+      <div className="bg-slate-950 w-screen h-screen text-slate-200 text-2xl flex flex-col justify-center items-center">
+        <h1 className="text-5xl mb-8">Game Over</h1>
         <h2>Your Score is {currScore}</h2>
         <h2>High Score is {bestScore}</h2>
-        <button onClick={playAgain}>Play Again?</button>
+        <button
+          className= {`px-7 bg-slate-900 ${buttonColorClass} py-3 rounded-xl hover:bg-slate-800 mt-8`}
+          onClick={playAgain}
+        >
+          Play Again?
+        </button>
       </div>
     );
   } else if (gameState === "won") {
