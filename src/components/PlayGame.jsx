@@ -4,7 +4,7 @@ import { useEffect } from "react";
 function PlayGame(props) {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [gameState, setGameState] = useState("lost");
+  const [gameState, setGameState] = useState("playing");
   const [buttonColorClass, setButtonColorClass] = useState("hover:text-green-500");
 
   useEffect(() => {
@@ -20,23 +20,23 @@ function PlayGame(props) {
     "kr",
     "se",
     "id",
-    "ca",
+    "in",
     "za",
     "br",
     "jp",
-    "dk",
     "bt",
     "fr",
     "ru",
-    "au",
     "it",
-    "in",
+    "dk",
+    "au",
+    "ca",
   ];
 
   const obj = {
-    easy: countries.slice(0, 6),
-    medium: countries.slice(0, 10),
-    hard: countries,
+    easy: countries.slice(0, 4),
+    medium: countries.slice(0, 8),
+    hard: countries.slice(0, 12),
   };
 
   const shuffle = (array) => {
@@ -79,21 +79,24 @@ function PlayGame(props) {
 
   if (gameState === "playing") {
     return (
-      <div>
-        <h1>Game Starting</h1>
+      <div className="bg-slate-950 text-slate-200 px-20 py-10 flex flex-col justify-center text-xl items-center">
+        <h1 className="text-5xl text-center pb-5">Remember The Flag!</h1>
         <h2>Score: {currScore}</h2>
         <h2>High Score: {bestScore}</h2>
-        <h2>Playing on {props.gamemode} difficulty</h2>
-        {randomCountries.map((country, index) => (
-          <img
-            key={index}
-            src={`https://flagcdn.com/w320/${country}.png`}
-            alt={country}
-            onClick={(e) => {
-              handleRandomizeClick(e);
-            }}
-          />
-        ))}
+
+        <div className="grid grid-cols-4 gap-8 pt-5">
+          {randomCountries.map((country, index) => (
+            <img
+              className="h-[200px]"
+              key={index}
+              src={`https://flagcdn.com/w320/${country}.png`}
+              alt={country}
+              onClick={(e) => {
+                handleRandomizeClick(e);
+              }}
+            />
+          ))}
+        </div>
       </div>
     );
   } else if (gameState === "lost") {
