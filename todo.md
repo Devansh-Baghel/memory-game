@@ -10,4 +10,5 @@
 - [x] Add score, highscore in game over screen
 - [x] Make high score work
 - [x] Add game win screen
+- [ ] Add link to source code in the website and/or link to your profile
 
