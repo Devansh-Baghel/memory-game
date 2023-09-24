@@ -111,6 +111,14 @@ function PlayGame(props) {
         >
           Play Again?
         </button>
+        <button
+          className= {`px-7 bg-slate-900 ${buttonColorClass} py-3 rounded-xl hover:bg-slate-800 mt-8`}
+          onClick={() => {
+            window.location.reload()
+          }}
+        >
+          Change Difficulty?
+        </button>
       </div>
     );
   } else if (gameState === "won") {
@@ -122,6 +130,14 @@ function PlayGame(props) {
           onClick={playAgain}
         >
           Play Again?
+        </button>
+        <button
+          className= {`px-7 bg-slate-900 ${buttonColorClass} py-3 rounded-xl hover:bg-slate-800 mt-8`}
+          onClick={() => {
+            window.location.reload()
+          }}
+        >
+          Change Difficulty?
         </button>
       </div>
     );
