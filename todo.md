@@ -1,12 +1,12 @@
 - [x] add a button to randomize the flag display
 - [x] change readme.md
-- [ ] name: remember the flag!
-- [ ] write css
+- [x] name: remember the flag!
+- [x] write css
 - [ ] instructions modal in the very beggining of the game
 - [x] remove the randomize button
 - [x] add game over screen
 - [x] add play again option
-- [ ] Add change difficulty option in game over screen
+- [x] Add change difficulty option in game over screen
 - [x] Add score, highscore in game over screen
 - [x] Make high score work
 - [x] Add game win screen
