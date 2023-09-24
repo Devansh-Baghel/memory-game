@@ -11,7 +11,7 @@ function PlayGame(props) {
     if (props.gamemode === "medium") {
       setButtonColorClass("hover:text-yellow-400")
     } else if (props.gamemode === "hard") {
-      setButtonColorClass("hover:text-red-500")
+      setButtonColorClass("hover:text-red-400")
     }
   }, [])
 

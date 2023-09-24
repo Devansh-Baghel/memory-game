@@ -17,7 +17,7 @@ function App() {
         <ul className="text-xl text-center">
           <li><span className="text-green-500">EASY: </span>You will have to remember 4 flags</li>
           <li><span className="text-yellow-400">MEDIUM: </span>You will have to remember 8 flags</li>
-          <li><span className="text-red-500">HARD: </span>You will have to remember 12 flags</li>
+          <li><span className="text-red-400">HARD: </span>You will have to remember 12 flags</li>
         </ul>
         <div className="flex gap-10 text-3xl text-slate-200">
           <button
@@ -39,7 +39,7 @@ function App() {
             Medium &rArr;
           </button>
           <button
-            className="px-7 bg-slate-900 hover:text-red-500 py-3 rounded-xl hover:bg-slate-800"
+            className="px-7 bg-slate-900 hover:text-red-400 py-3 rounded-xl hover:bg-slate-800"
             onClick={() => {
               setGamemode("hard");
               setStartGame(true);
