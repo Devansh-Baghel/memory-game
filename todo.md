@@ -2,7 +2,7 @@
 - [x] change readme.md
 - [x] name: remember the flag!
 - [x] write css
-- [ ] instructions modal in the very beggining of the game
+- [x] instructions modal in the very beggining of the game
 - [x] remove the randomize button
 - [x] add game over screen
 - [x] add play again option
