@@ -11,4 +11,5 @@
 - [x] Make high score work
 - [x] Add game win screen
 - [ ] Add link to source code in the website and/or link to your profile
-
+- [ ] Add screenshots in README
+- [ ] Make user cursor into a pointer when hovering a flag
