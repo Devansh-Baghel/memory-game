@@ -8,20 +8,18 @@ Made with [Vite](https://vitejs.dev/), [React](https://react.dev/) and [Tailwind
 
 
 ## How To Play
-- The game consists of a grid of flags. The order of flags is important here and the players have to make a mental note of the order in which the flags appear.
-
-- As soon as the player clicks on the first flag the game starts and the player would be presented with shuffled order of flags on each subsequent click.
-
-- The players have to click the flags in the same order as the one presented to them at the start of the game.
-
-- Player wins if they are able to replicate the order of flags they start with.
+- The game consists of a grid of flags. You have to remember the flags that you clicked.
+- Score counter starts when you click a flag.
+- If you click the same flag twice, you lose.
+- In order to win, you must remember which flags you have clicked and which ones you haven't.
+- Flags will shuffle randomly after you click.
+- Click all the flags present on the screen, and you win.
 <br/>
 <br/>
 
 
-## Variations
+## Difficulty
 - The game provides options to choose from varying difficulties and test the memory skills of players.
-
 - Players have 3 difficulty options: Easy, Medium and Hard. 
 <br/>
 <br/>
